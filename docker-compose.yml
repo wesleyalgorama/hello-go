@@ -1,0 +1,11 @@
+services:
+  app:
+    image: golang:tip-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:8080"
+    command: sh -c "go mod tidy && go run main.go"
+    environment:
+      - ENV=development
